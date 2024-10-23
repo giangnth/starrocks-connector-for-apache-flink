@@ -17,10 +17,10 @@
 # limitations under the License.
 
 PARALLEL=$[$(nproc)/4+1]
-THRIFT_DOWNLOAD="http://archive.apache.org/dist/thrift/0.13.0/thrift-0.13.0.tar.gz"
-THRIFT_NAME=thrift-0.13.0.tar.gz
-THRIFT_SOURCE=thrift-0.13.0
-THRIFT_MD5SUM="38a27d391a2b03214b444cb13d5664f1"
+THRIFT_DOWNLOAD="http://archive.apache.org/dist/thrift/0.16.0/thrift-0.16.0.tar.gz"
+THRIFT_NAME=thrift-0.16.0.tar.gz
+THRIFT_SOURCE=thrift-0.16.0
+THRIFT_MD5SUM="44cf1b54b4ec1890576c85804acfa637"
 
 THRIFT_HOME=thrift
 THRIFT_PKG=$THRIFT_HOME/$THRIFT_NAME

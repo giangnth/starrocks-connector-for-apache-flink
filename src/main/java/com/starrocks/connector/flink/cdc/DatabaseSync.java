@@ -28,7 +28,7 @@ import com.starrocks.connector.flink.cdc.json.DebeziumJsonSerializer;
 import com.starrocks.connector.flink.cdc.mysql.ParsingProcessFunction;
 import com.starrocks.connector.flink.connection.StarRocksJdbcConnectionOptions;
 import com.starrocks.connector.flink.table.sink.StarRocksSinkOptions;
-import com.ververica.cdc.connectors.mysql.source.config.MySqlSourceOptions;
+import org.apache.flink.cdc.connectors.mysql.source.config.MySqlSourceOptions;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
