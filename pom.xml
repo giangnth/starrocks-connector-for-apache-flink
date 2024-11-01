@@ -189,20 +189,7 @@ limitations under the License.
         <dependency>
             <groupId>com.starrocks</groupId>
             <artifactId>starrocks-thrift-sdk</artifactId>
-            <version>1.0.1</version>
-            <scope>compile</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.thrift</groupId>
-                    <artifactId>libthrift</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.thrift</groupId>
-            <artifactId>libthrift</artifactId>
-            <version>0.16.0</version>
+            <version>1.0.2</version>
             <scope>compile</scope>
         </dependency>
 
