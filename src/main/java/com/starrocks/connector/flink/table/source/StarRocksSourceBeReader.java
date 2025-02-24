@@ -20,11 +20,11 @@ import com.starrocks.connector.flink.row.source.ArrowFieldConverter;
 import com.starrocks.connector.flink.row.source.StarRocksSourceFlinkRows;
 import com.starrocks.connector.flink.table.source.struct.ColumnRichInfo;
 import com.starrocks.connector.flink.table.source.struct.SelectColumn;
-import com.starrocks.shade.org.apache.thrift.TException;
-import com.starrocks.shade.org.apache.thrift.protocol.TBinaryProtocol;
-import com.starrocks.shade.org.apache.thrift.protocol.TProtocol;
-import com.starrocks.shade.org.apache.thrift.transport.TSocket;
-import com.starrocks.shade.org.apache.thrift.transport.TTransportException;
+import org.apache.thrift.TException;
+import org.apache.thrift.protocol.TBinaryProtocol;
+import org.apache.thrift.protocol.TProtocol;
+import org.apache.thrift.transport.TSocket;
+import org.apache.thrift.transport.TTransportException;
 import com.starrocks.thrift.TScanBatchResult;
 import com.starrocks.thrift.TScanCloseParams;
 import com.starrocks.thrift.TScanNextBatchParams;
@@ -89,11 +89,14 @@ public class StarRocksSourceBeReader implements StarRocksSourceDataReader, Seria
         this.columnRichInfos = columnRichInfos;
         this.selectColumns = selectColumns;
         TBinaryProtocol.Factory factory = new TBinaryProtocol.Factory();
-        TSocket socket = new TSocket(IP, PORT, sourceOptions.getConnectTimeoutMs(), sourceOptions.getConnectTimeoutMs());
+        TSocket socket = null;
         try {
+            socket = new TSocket(IP, PORT, sourceOptions.getConnectTimeoutMs());
             socket.open();
         } catch (TTransportException e) {
-            socket.close();
+            if (socket != null && socket.isOpen()) {
+                socket.close();
+            }
             throw new RuntimeException("Failed to create brpc source:" + e.getMessage());
         }
         TProtocol protocol = factory.getProtocol(socket);

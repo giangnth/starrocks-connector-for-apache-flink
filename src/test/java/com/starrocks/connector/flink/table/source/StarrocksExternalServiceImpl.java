@@ -34,7 +34,7 @@ import com.starrocks.thrift.TStarrocksExternalService;
 import com.starrocks.thrift.TStatus;
 import com.starrocks.thrift.TStatusCode;
 
-import com.starrocks.shade.org.apache.thrift.TException;
+import org.apache.thrift.TException;
 
 public class StarrocksExternalServiceImpl implements TStarrocksExternalService.Iface {
 
